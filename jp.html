@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SENTRO PARTYLIST</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('red2.jpg') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .fire-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .fire-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      animation: fire-flicker 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes fire-flicker {
+      0% { transform: scale(1.02) translateY(-1px); opacity: 0.2; }
+      100% { transform: scale(1.05) translateY(1px); opacity: 0.3; }
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      max-width: 760px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: dropIn 1s ease-out;
+    }
+
+    .logo img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .text-box {
+      background: #fff;
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+.text-box.collapsed:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+    .text-box:hover {
+      transform: scale(1.03);
+    }
+
+    .text-box h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #8B0000;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .text-box.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapse-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+      padding-top: 0;
+      opacity: 0;
+    }
+
+    .collapse-content.active {
+  max-height: 500px; /* you can adjust this */
+  overflow-y: auto;
+  padding-top: 1rem;
+  opacity: 1;
+  scrollbar-width: thin;
+}
+
+
+
+
+    .collapse-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .collapse-inner img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+    @media (max-width: 768px) {
+      .top {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .collapse-inner img {
+        max-height: 200px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes dropIn {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fire-overlay">
+    <img src="https://media.tenor.com/3Dv1dt0VcxUAAAAM/fire.gif" alt="Fire" />
+  </div>
+
+  <div class="wrapper">
+    <div class="top">
+      <div class="logo">
+        <img src="sentro.png" alt="Logo">
+      </div>
+    </div>
+
+    <div class="accordion">
+
+      <!-- Sample Text Box -->
+     
+      <div class="text-box" onclick="toggleCollapse(this)">
+        <h1>
+          ALAB LASALYANO
+          <span class="toggle-icon">+</span>
+        </h1>
+                <div class="collapse-content">
+         <div class="collapse-inner">
+    <p> From heartfelt songs to powerful plays, witness the talent of Lasallians from Grade School to Senior High School, all coming together for a cause that matters. Awit at Alab Lasalyano is a concert-for-a-cause that showcases not just singing and dancing, but also theatrical performances, spoken word, live art, and more. As the stage comes alive, so does our mission. A live donation tracker will keep everyone updated in real time, ensuring transparency as we raise funds to support those in need.</p>
+          </div>
+        </div>
+      </div>
+
+<div class="text-box" onclick="toggleCollapse(this)">
+        <h1>
+          #SHSWRAPPED
+          <span class="toggle-icon">+</span>
+        </h1>
+                <div class="collapse-content">
+         <div class="collapse-inner">
+    <p> You want access to your Lasallian memories — we got you! What better way to have it than yearbooks! Through this endeavor, classes will be called to submit their section yearbooks at the end of the academic year for submission in a CSYA-part contest. This will not only contribute to class spirit, but also, foster a warm environment
+for every class that is united in keeping
+record of their best memories and
+year-defining highlights. 
+</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+ <script>
+  function toggleCollapse(box) {
+    const content = box.querySelector('.collapse-content');
+    const icon = box.querySelector('.toggle-icon');
+    const isActive = content.classList.contains('active');
+
+    // Collapse all others
+    document.querySelectorAll('.collapse-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.text-box').forEach(b => {
+      b.classList.remove('open');
+      b.classList.add('collapsed'); // Mark as collapsed by default
+      b.querySelector('.toggle-icon').textContent = '+';
+    });
+
+    // Toggle current
+    if (!isActive) {
+      content.classList.add('active');
+      box.classList.add('open');
+      box.classList.remove('collapsed'); // Remove hover class when open
+      icon.textContent = '−';
+    }
+  }
+</script>
+</body>
+</html>
+
+
+
